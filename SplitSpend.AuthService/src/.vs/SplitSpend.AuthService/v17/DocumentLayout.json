@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|c:\\users\\owner\\desktop\\splitspend\\splitspend.authservice\\src\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|c:\\users\\owner\\desktop\\splitspend\\splitspend.authservice\\src\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|c:\\users\\owner\\desktop\\splitspend\\splitspend.authservice\\src\\extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|solutionrelative:extensions\\serviceextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|c:\\users\\owner\\desktop\\splitspend\\splitspend.authservice\\src\\migrations\\20260528174225_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|solutionrelative:migrations\\20260528174225_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|c:\\users\\owner\\desktop\\splitspend\\splitspend.authservice\\src\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A9A54C6-5D51-4DF6-BA2C-DAED8AB2D844}|SplitSpend.AuthService.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20260528174225_init.cs",
+              "DocumentMoniker": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\Migrations\\20260528174225_init.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260528174225_init.cs",
+              "ToolTip": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\Migrations\\20260528174225_init.cs",
+              "RelativeToolTip": "Migrations\\20260528174225_init.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T17:42:26.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-18T12:20:29.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAABEAAAAAiOO0i1AcwB4AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-18T11:40:48.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ServiceExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\Extensions\\ServiceExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\ServiceExtensions.cs",
+              "ToolTip": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\Extensions\\ServiceExtensions.cs",
+              "RelativeToolTip": "Extensions\\ServiceExtensions.cs",
+              "ViewState": "AQIAAHEBAAAAAAAAAAA6wHoBAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T11:32:04.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\OWNER\\Desktop\\SplitSpend\\SplitSpend.AuthService\\src\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T07:19:53.326Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

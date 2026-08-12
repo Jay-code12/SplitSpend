@@ -1,0 +1,28 @@
+services:
+
+  auth-service:
+    build:
+      context: ./SplitSpend.AuthService/src
+      dockerfile: Dockerfile
+    container_name: auth-service
+    ports:
+      - "5001:8080"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "YourStrong@Pass123"
+    depends_on:
+      - auth-sqlserver
+
+  auth-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "YourStrong@Pass123"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+volumes:
+  sqlserver_data:

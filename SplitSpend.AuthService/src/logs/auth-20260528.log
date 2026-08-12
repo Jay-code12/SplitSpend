@@ -1,0 +1,29 @@
+2026-05-28 10:38:16.805 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Consumer [] error ("Local_Transport"): localhost:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Unknown error (after 2310ms in state CONNECT) on user.created. IsFatal(false)
+2026-05-28 10:38:17.039 -07:00 [ERR] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Failed to register Auth Service with Consul.
+System.Net.Http.HttpRequestException: No such host is known. (consul:8500)
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.HttpConnectionWaiter`1.WaitForConnectionWithTelemetryAsync(HttpRequestMessage request, HttpConnectionPool pool, Boolean async, CancellationToken requestCancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Consul.PutRequest`1.Execute(CancellationToken ct)
+   at SplitSpend.AuthService.Infrastructure.Consul.ConsulRegistrationService.StartAsync(CancellationToken cancellationToken) in C:\Users\OWNER\Desktop\SplitSpend\SplitSpend.AuthService\src\Infrastructure\Consul\ConsulRegistrationService.cs:line 34
+2026-05-28 10:38:17.484 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Overriding address(es) 'http://0.0.0.0:5001'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2026-05-28 10:38:25.897 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Consumer [] error ("Local_Transport"): localhost:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Unknown error (after 2038ms in state CONNECT) on user.created. IsFatal(false)
+2026-05-28 10:38:38.145 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Consumer [] error ("Local_Transport"): localhost:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Unknown error (after 2033ms in state CONNECT) on user.created. IsFatal(false)
+2026-05-28 10:38:55.028 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Consumer [] error ("Local_Transport"): localhost:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Unknown error (after 2030ms in state CONNECT) on user.created. IsFatal(false)
+2026-05-28 10:39:27.100 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Consumer [] error ("Local_Transport"): localhost:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Unknown error (after 2057ms in state CONNECT) on user.created. IsFatal(false)
+2026-05-28 10:40:00.186 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Consumer [] error ("Local_Transport"): localhost:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Unknown error (after 2041ms in state CONNECT) on user.created. IsFatal(false)
+2026-05-28 10:40:33.277 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Consumer [] error ("Local_Transport"): localhost:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Unknown error (after 2043ms in state CONNECT) on user.created. IsFatal(false)
+2026-05-28 10:41:06.333 -07:00 [WRN] CorrelationId= TraceId= UserId= ServiceName=SplitSpend.AuthService Consumer [] error ("Local_Transport"): localhost:9092/bootstrap: Connect to ipv4#127.0.0.1:9092 failed: Unknown error (after 2027ms in state CONNECT) on user.created. IsFatal(false)

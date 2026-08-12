@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qLMOW/VZqO3LNeQ98gp68dmiV9+o93iA06fdLdJ2uQQ=",
+  "Source": "SplitSpend.AuthService",
+  "BasePath": "_content/SplitSpend.AuthService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

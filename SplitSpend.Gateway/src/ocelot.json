@@ -1,0 +1,383 @@
+{
+  "Routes": [
+
+    // ─────────────────────────────────────────────────────────────────
+    // AUTH SERVICE  (public — no JWT required)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/auth/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "auth-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 5,
+        "RateLimitCounterPrefix": "auth"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": ""
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "auth-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // USER SERVICE  (authenticated)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/users/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/users/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "user-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 300,
+        "RateLimitCounterPrefix": "user"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "user-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // WALLET SERVICE  (authenticated, ownership enforced in middleware)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/wallets/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/wallets/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "wallet-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 300,
+        "RateLimitCounterPrefix": "wallet"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "wallet-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // BUDGET SERVICE  (authenticated)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/budgets/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/budgets/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "budget-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 300,
+        "RateLimitCounterPrefix": "budget"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "budget-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // TRANSFER SERVICE — webhook (no JWT, HMAC only)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/transfers/webhook",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/transfers/webhook",
+      "DownstreamScheme": "http",
+      "ServiceName": "transfer-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": ""
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "transfer-webhook-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // TRANSFER SERVICE — authenticated + PIN guard (via middleware)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/transfers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/transfers/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "transfer-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 5,
+        "RateLimitCounterPrefix": "transfer"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "transfer-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // TRANSACTION SERVICE  (authenticated)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/transactions/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/transactions/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "transaction-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 300,
+        "RateLimitCounterPrefix": "transaction"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "transaction-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // PAYMENT SERVICE — webhook (no JWT, HMAC only)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/payments/webhook",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/payments/webhook",
+      "DownstreamScheme": "http",
+      "ServiceName": "payment-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": ""
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "payment-webhook-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // PAYMENT SERVICE — authenticated
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/payments/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/payments/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "payment-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 10,
+        "RateLimitCounterPrefix": "payment"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "payment-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // VENDOR PAY SERVICE  (User + Vendor roles)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/vendor-pay/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/vendor-pay/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "vendor-pay-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 20,
+        "RateLimitCounterPrefix": "vendor-pay"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "vendor-pay-route"
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    // NOTIFICATION SERVICE  (authenticated)
+    // ─────────────────────────────────────────────────────────────────
+    {
+      "UpstreamPathTemplate": "/api/notifications/{everything}",
+      "UpstreamHttpMethod": [ "GET", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/notifications/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "notification-service",
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "60s",
+        "PeriodTimespan": 60,
+        "Limit": 300,
+        "RateLimitCounterPrefix": "notification"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": false,
+        "UseCookieContainer": false,
+        "UseTracing": true
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 15000,
+        "TimeoutValue": 30000
+      },
+      "Key": "notification-route"
+    }
+
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000",
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul",
+      "PollingInterval": 5000
+    },
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "Too many requests. Please slow down.",
+      "HttpStatusCode": 429,
+      "ClientIdHeader": "X-Client-Id"
+    },
+    "QoSOptions": {
+      "ExceptionsAllowedBeforeBreaking": 5,
+      "DurationOfBreak": 15000,
+      "TimeoutValue": 30000
+    },
+    "HttpHandlerOptions": {
+      "AllowAutoRedirect": false,
+      "UseCookieContainer": false,
+      "UseTracing": true,
+      "MaxConnectionsPerServer": 100
+    }
+  }
+}
