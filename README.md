@@ -4,8 +4,6 @@
 
 SplitSpend is a fintech platform that helps university students, NYSC members, and corporate workers control overspending by locking deposited funds into auto-calculated daily spending limits. Parents can remotely fund and cap a student's daily spend.
 
-> 📌 **Status:** MVP in development — Version 4.0 specification
-
 ---
 
 ## Table of Contents
@@ -33,11 +31,11 @@ University students, corporate workers, and NYSC members frequently struggle wit
 
 **SplitSpend solves this by:**
 
-- 🔒 Locking deposited funds into auto-calculated **daily spending budgets**
-- 👨‍👩‍👧 Letting **parents remotely fund and cap** a student's daily spending
-- ⚡ Enabling **zero-fee** vendor and user-to-user payments — pure internal wallet moves, no external processor round-trip
-- 💳 Providing a **Main Balance fallback** so users are never hard-blocked from paying
-- 🏦 Allowing **transfers to any Nigerian bank account** from Main Balance
+- Locking deposited funds into auto-calculated **daily spending budgets**
+- Letting **parents remotely fund and cap** a student's daily spending
+- Enabling **zero-fee** vendor and user-to-user payments — pure internal wallet moves, no external processor round-trip
+- Providing a **Main Balance fallback** so users are never hard-blocked from paying
+- Allowing **transfers to any Nigerian bank account** from Main Balance
 
 ## Key Features
 
