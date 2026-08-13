@@ -2,7 +2,7 @@
 
 **Forced financial discipline through daily spending budgets.**
 
-SplitSpend is a fintech platform that helps university students, NYSC members, and corporate workers control overspending by locking deposited funds into auto-calculated daily spending limits. Parents can remotely fund and cap a student's daily spend, users pay each other and vendors instantly with zero fees, and any Main Balance funds can be transferred out to a Nigerian bank account whenever needed.
+SplitSpend is a fintech platform that helps university students, NYSC members, and corporate workers control overspending by locking deposited funds into auto-calculated daily spending limits. Parents can remotely fund and cap a student's daily spend.
 
 > 📌 **Status:** MVP in development — Version 4.0 specification
 
