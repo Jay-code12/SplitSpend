@@ -90,7 +90,7 @@ SplitSpend is built as **9 independently deployable microservices** behind a sin
 | Background Jobs | Hangfire / Quartz.NET |
 | Auth | JWT + Refresh Tokens + PIN |
 | Service Discovery | HashiCorp Consul |
-| API Gateway | ASP.NET Core + YARP |
+| API Gateway | ASP.NET Core + Ocelot |
 | Resilience | Polly |
 | Logging | Serilog → Seq |
 | Tracing | OpenTelemetry |
@@ -168,7 +168,7 @@ Full specifications are maintained as versioned PDFs:
 
 - [ ] Core service scaffolding (9 microservices)
 - [ ] Kafka event bus wiring
-- [ ] API Gateway (YARP) + Consul service discovery
+- [ ] API Gateway (Ocelot) + Consul service discovery
 - [ ] Paystack deposit + transfer integration
 - [ ] Mobile app (.NET MAUI)
 - [ ] Web app (Angular)
